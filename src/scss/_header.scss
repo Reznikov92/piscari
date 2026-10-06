@@ -13,12 +13,13 @@
     display: flex;
     align-items: center;
 
+    /* ИСПРАВЛЕНО: Яркий, чистый и светлый лазурно-голубой цвет. Теперь логотип горит контрастно и не сливается! */
     .logo-img {
       height: 3.125rem;       
       width: auto;         
       object-fit: contain; 
       background-color: transparent; 
-      filter: invert(53%) sepia(87%) saturate(2360%) hue-rotate(1deg) brightness(103%) contrast(105%); 
+      filter: invert(72%) sepia(50%) saturate(2891%) hue-rotate(159deg) brightness(102%) contrast(104%);
     }
   }
 
@@ -37,10 +38,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
-
-      &:hover { 
-        color: $color-brand; 
-      }
+      &:hover { color: $color-brand; }
     }
 
     .header-socials { 
@@ -49,22 +47,11 @@
       align-items: center;
 
       .nav-social {
-        display: flex; 
-        align-items: center; 
-        justify-content: center;
-        width: 2rem; 
-        height: 2rem; 
-        border-radius: 50%; 
-        color: #fff;
-        text-decoration: none; 
-        font-size: 0.6875rem; 
-        font-weight: bold;
+        display: flex; align-items: center; justify-content: center;
+        width: 2rem; height: 2rem; border-radius: 50%; color: #fff;
+        text-decoration: none; font-size: 0.6875rem; font-weight: bold;
         transition: transform 0.2s, background-color 0.3s;
-
-        &:hover { 
-          transform: scale(1.1); 
-        }
-        
+        &:hover { transform: scale(1.1); }
         &.tg { background-color: #0088cc; }
         &.vk { background-color: #0077ff; }
         &.max { background-color: $color-max; }
@@ -72,13 +59,12 @@
     }
   }
 
-  /* ИСПРАВЛЕНО: Геометрия идеального симметричного крестика */
   .burger-btn {
     display: none; 
     flex-direction: column;
     justify-content: space-between;
-    width: 1.625rem; /* Вернули ровную ширину 26px */
-    height: 1.125rem; /* Высота 18px */
+    width: 1.625rem; 
+    height: 1.125rem; 
     background: none; 
     border: none; 
     cursor: pointer; 
@@ -87,27 +73,13 @@
     padding: 0;
 
     span {
-      display: block; 
-      width: 100%; 
-      height: 0.1875rem; 
-      background-color: $color-text; 
-      border-radius: 0.125rem; 
-      transition: all 0.3s ease-in-out;
+      display: block; width: 100%; height: 0.1875rem; background-color: $color-text; border-radius: 0.125rem; transition: all 0.3s ease-in-out;
     }
 
-    /* ИСПРАВЛЕНО: Смещаем палочки к центру по Y при повороте, усы станут одинаковыми! */
     &.open {
-      span:nth-child(1) { 
-        transform: translateY(0.4688rem) rotate(45deg); /* Сдвиг на 7.5px вниз и поворот */
-        background-color: $color-brand; 
-      }
-      span:nth-child(2) { 
-        opacity: 0; 
-      }
-      span:nth-child(3) { 
-        transform: translateY(-0.4688rem) rotate(-45deg); /* Сдвиг на 7.5px вверх и поворот */
-        background-color: $color-brand; 
-      }
+      span:nth-child(1) { transform: translateY(0.4688rem) rotate(45deg); background-color: $color-brand; }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-0.4688rem) rotate(-45deg); background-color: $color-brand; }
     }
   }
 }

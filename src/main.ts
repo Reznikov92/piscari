@@ -1,81 +1,24 @@
 import './style.scss'
+import { productsData } from './products' // ИМПОРТИРУЕМ НАШ ВЫНЕСЕННЫЙ МАССИВ
 
-interface ColorOption {
-  name: string;
-  hex: string;
+// Настройка дубового и надежного аудио-плеера
+const castSound = new Audio('./cast.mp3');
+
+function playCastSound(): void {
+  castSound.currentTime = 0;
+  castSound.volume = 1.0; 
+  castSound.play().catch(() => {});
 }
 
-interface ProductGroup {
-  id: string;
-  name: string;
-  size: '25' | '35';
-  price: string;
-  colors: ColorOption[];
-}
+// Разблокировка звукового контекста браузера по самому первому щелчку
+document.addEventListener('click', () => {
+  castSound.play().then(() => {
+    castSound.pause();
+    castSound.currentTime = 0;
+  }).catch(() => {});
+}, { once: true });
 
-// НАСТОЯЩИЙ ЗВУК ЗАБРОСА УДОЧКИ/СПИННИНГА С КАТУШКОЙ
-const castSound = new Audio('https://mixkit.co');
-
-// База данных приманок Piscari
-const productsData: ProductGroup[] = [
-  {
-    id: "p25",
-    name: "Piscari Micro",
-    size: "25",
-    price: "По запросу",
-    colors: [
-      { name: "Огненно-красный", hex: "#cc0000" },
-      { name: "Кислотно-зеленый (Chartreuse)", hex: "#39ff14" },
-      { name: "Натуральный малёк", hex: "#7a8b7b" },
-      { name: "Ультрафиолет (UV Поплавок)", hex: "#6a0dad" },
-      { name: "Лимонный неон", hex: "#ccff00" },
-      { name: "Машинное масло с золотом", hex: "#593e1a" },
-      { name: "Белый перламутр", hex: "#eaeaea" },
-      { name: "Спелая вишня", hex: "#800020" },
-      { name: "Светящийся в темноте (Glow)", hex: "#aaffaa" },
-      { name: "Шоколад с золотыми блестками", hex: "#4a2c11" },
-      { name: "Розовая фуксия", hex: "#ff007f" },
-      { name: "Болотная лягушка", hex: "#465d33" },
-      { name: "Карамель с серебром", hex: "#d2b48c" },
-      { name: "Арбузный микс", hex: "#ff6b6b" },
-      { name: "Кола с красной точкой", hex: "#2b1a1a" },
-      { name: "Желтый сыр (Форелевый)", hex: "#ffcc00" },
-      { name: "Серебристый металик", hex: "#a8b1b8" },
-      { name: "Оранжевый неон", hex: "#ff5500" },
-      { name: "Фиолетовый аметист", hex: "#8a2be2" },
-      { name: "Двухцветный: Халк", hex: "linear-gradient(135deg, #39ff14 50%, #6a0dad 50%)" }
-    ]
-  },
-  {
-    id: "p35",
-    name: "Piscari Master",
-    size: "35",
-    price: "По запросу",
-    colors: [
-      { name: "Ядовитый оранжевый", hex: "#ff4500" },
-      { name: "Глубокий черный", hex: "#111111" },
-      { name: "Золотая осень", hex: "#ffbe0b" },
-      { name: "Зеленый арбуз с флешем", hex: "#1e4620" },
-      { name: "Белый жемчуг (Судак)", hex: "#ffffff" },
-      { name: "Кислотная креветка", hex: "#ff7f50" },
-      { name: "Бензин (Светоотражающий)", hex: "linear-gradient(135deg, #00ffff, #ff00ff)" },
-      { name: "Кровавая пиявка", hex: "#7a0010" },
-      { name: "Насыщенный ультрафиолет", hex: "#480ca8" },
-      { name: "Салатовый лед (Glow)", hex: "#c7f9cc" },
-      { name: "Темный шоколад", hex: "#3a2216" },
-      { name: "Розовый неон", hex: "#f72585" },
-      { name: "Медная чешуя", hex: "#b87333" },
-      { name: "Изумрудный окунь", hex: "#00a86b" },
-      { name: "Морковный взрыв", hex: "#ff6600" },
-      { name: "Синий кристалл с блеском", hex: "#4361ee" },
-      { name: "Двухцветный: Оса", hex: "linear-gradient(135deg, #ffcc00 50%, #111111 50%)" },
-      { name: "Двухцветный: Малина-лимон", hex: "linear-gradient(135deg, #ff007f 50%, #ccff00 50%)" },
-      { name: "Копченая корюшка", hex: "#6d6875" },
-      { name: "Красноголовый малёк (Red Head)", hex: "linear-gradient(135deg, #cc0000 35%, #ffffff 35%)" }
-    ]
-  }
-];
-
+// Доступ к элементам HTML-разметки
 const mainPage = document.getElementById('main-page');
 const productPage = document.getElementById('product-page');
 const productGrid = document.getElementById('product-grid');
@@ -85,29 +28,31 @@ const navCatalogLink = document.getElementById('nav-catalog-link');
 const burgerBtn = document.getElementById('burger-menu-btn');
 const headerNav = document.getElementById('header-nav');
 
-// Функция запуска звукового эффекта
-function playCastSound(): void {
-  castSound.currentTime = 0; 
-  castSound.play().catch(err => console.log("Звук ожидает первого клика:", err));
-}
-
-// УПРАВЛЕНИЕ БУРГЕР-МЕНЮ
+// Клик по бургеру — со звуком лески!
 burgerBtn?.addEventListener('click', () => {
   playCastSound(); 
   burgerBtn.classList.toggle('open');
   headerNav?.classList.toggle('open');
 });
 
-// Закрытие шторки бургера при клике на ссылки и соцсети внутри неё
+// Клик по ссылкам и соцсетям внутри шторки — со звуком лески!
 const allMenuElements = headerNav?.querySelectorAll('a');
 allMenuElements?.forEach(element => {
   element.addEventListener('click', () => {
+    playCastSound();
     burgerBtn?.classList.remove('open');
     headerNav?.classList.remove('open');
   });
 });
 
-// Отрисовка витрины на Главной странице
+// Дополнительно вешаем звук заброса на соцсети в подвале сайта
+document.querySelectorAll('.footer .social-link').forEach(link => {
+  link.addEventListener('click', () => {
+    playCastSound();
+  });
+});
+
+// Отрисовка витрины каталога
 function renderMainCatalog(sizeFilter: string): void {
   if (!productGrid) return;
   productGrid.innerHTML = '';
@@ -120,7 +65,7 @@ function renderMainCatalog(sizeFilter: string): void {
     const card = document.createElement('div');
     card.className = 'base-product-card';
     card.innerHTML = `
-      <div class="base-img-stub" style="background-color: #2d3b32">Piscari ${group.size}мм</div>
+      <div class="base-img-stub" style="background-image: url('./product-bg.png'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
       <h3>${group.name}</h3>
       <p class="size-tag">Размер: ${group.size} мм (20 расцветок)</p>
       <div class="price">${group.price}</div>
@@ -141,7 +86,7 @@ function renderMainCatalog(sizeFilter: string): void {
   });
 }
 
-// Внутренняя страница товара (стиль OZON)
+// Страница товара (стиль карточки Ozon)
 function openProductPage(productId: string): void {
   const product = productsData.find(p => p.id === productId);
   if (!product || !detailView || !mainPage || !productPage) return;
@@ -150,7 +95,6 @@ function openProductPage(productId: string): void {
   productPage.classList.remove('hidden');
   window.scrollTo({ top: 0 });
 
-  // ЖЕЛЕЗОБЕТОННО ИСПРАВЛЕНО ТУТ: Берём именно первый элемент массива [0]
   const defaultColor = product.colors[0];
 
   let htmlBadges = '';
@@ -168,7 +112,7 @@ function openProductPage(productId: string): void {
 
   detailView.innerHTML = `
     <div class="ozon-detail-layout">
-      <div class="ozon-large-img-box" id="large-img-box" style="background: ${defaultColor.hex}">
+      <div class="ozon-large-img-box" id="large-img-box" style="background-color: ${defaultColor.hex}; background-image: url('./product-bg.png'); background-repeat: no-repeat; background-position: center; background-size: contain;">
         <span class="ozon-large-text">${product.size} мм</span>
       </div>
       
@@ -190,19 +134,25 @@ function openProductPage(productId: string): void {
   const largeImgBox = detailView.querySelector('#large-img-box') as HTMLElement;
   const colorNameText = detailView.querySelector('#ozon-color-name') as HTMLElement;
 
+  // Клик по ЛЮБОМУ кружочку палитры — со звуком лески!
   badges.forEach(badge => {
     badge.addEventListener('click', () => {
+      playCastSound(); // Добавили "Вжух!" при выборе цвета приманки
       badges.forEach(b => b.classList.remove('active'));
       badge.classList.add('active');
 
       const name = badge.getAttribute('data-name') || '';
       const hex = badge.getAttribute('data-hex') || '';
 
-      if (largeImgBox) largeImgBox.style.background = hex;
+      if (largeImgBox) {
+        largeImgBox.style.backgroundColor = hex;
+        largeImgBox.style.backgroundImage = "url('./product-bg.png')";
+      }
       if (colorNameText) colorNameText.innerText = name;
     });
   });
 
+  // Клик по финальной кнопке заказа — со звуком лески!
   detailView.querySelector('.btn-ozon-order')?.addEventListener('click', () => {
     playCastSound();
     productPage.classList.add('hidden');
@@ -215,25 +165,20 @@ function showMainPage(): void {
   if (!mainPage || !productPage) return;
   productPage.classList.add('hidden');
   mainPage.classList.remove('hidden');
+  window.scrollTo({ top: 0 });
 }
 
-btnBack?.addEventListener('click', showMainPage);
+// Клик по кнопке Назад — со звуком!
+btnBack?.addEventListener('click', () => {
+  playCastSound();
+  showMainPage();
+});
 
 navCatalogLink?.addEventListener('click', (e: Event) => {
   e.preventDefault();
+  playCastSound();
   showMainPage();
   document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
-});
-
-const filterButtons = document.querySelectorAll('.filter-btn');
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', (e: Event) => {
-    filterButtons.forEach(b => b.classList.remove('active'));
-    const target = e.target as HTMLButtonElement;
-    target.classList.add('active');
-    const size = target.getAttribute('data-size') || 'all';
-    renderMainCatalog(size);
-  });
 });
 
 renderMainCatalog('all');
