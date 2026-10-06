@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #121613; /* Глубокий темно-зеленый */
+  background-color: #121613; /* Глубокий темно-зеленый, почти черный */
   color: #e4e6e4;
   scroll-behavior: smooth;
 }
@@ -17,28 +17,41 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5%;
+  padding: 15px 5%;
   background-color: #1a211c;
   border-bottom: 2px solid #2d3b32;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #ff7a00; /* Ярко-оранжевый */
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+
+/* СТИЛИ ДЛЯ ЛОГОТИПА С КРАСНЫМ ФОНОМ */
+.logo-img {
+  height: 55px; /* Высота логотипа в шапке */
+  width: auto;
+  object-fit: contain;
+  
+  /* Эффект магии: растворяет белый фон картинки, оставляя белый рисунок */
+  mix-blend-mode: multiply; 
+  
+  /* Красный фон под логотипом */
+  background-color: #cc1111; 
+  padding: 6px 12px;         /* Отступы вокруг логотипа */
+  border-radius: 6px;        /* Красивое скругление углов плашки */
 }
 
 .nav a {
   color: #e4e6e4;
   text-decoration: none;
   margin-left: 20px;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
 .nav a:hover {
-  color: #ff7a00;
+  color: #cc1111; /* Меняем на красный при наведении */
 }
 
 /* Главный экран */
@@ -63,7 +76,7 @@ body {
 .btn-main {
   display: inline-block;
   padding: 12px 30px;
-  background-color: #ff7a00;
+  background-color: #cc1111; /* Тоже красный цвет */
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -72,7 +85,7 @@ body {
 }
 
 .btn-main:hover {
-  background-color: #e06b00;
+  background-color: #990000;
 }
 
 /* Блок каталога */
@@ -110,8 +123,8 @@ body {
 }
 
 .filter-btn:hover, .filter-btn.active {
-  background-color: #ff7a00;
-  border-color: #ff7a00;
+  background-color: #cc1111;
+  border-color: #cc1111;
   color: #fff;
 }
 
@@ -133,7 +146,7 @@ body {
 
 .product-card:hover {
   transform: translateY(-5px);
-  border-color: #ff7a00;
+  border-color: #cc1111;
 }
 
 /* Заглушка под фото */
@@ -166,7 +179,7 @@ body {
 .product-price {
   font-size: 22px;
   font-weight: bold;
-  color: #ff7a00;
+  color: #cc1111;
   margin-bottom: 15px;
 }
 
@@ -186,5 +199,5 @@ body {
 }
 
 .btn-buy:hover {
-  background-color: #ff7a00;
+  background-color: #cc1111;
 }
