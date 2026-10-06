@@ -1,13 +1,54 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>piscari</title>
+    <title>Piscari — Авторские рыболовные снасти</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- ШАПКА САЙТА -->
+    <header class="header">
+      <div class="logo">Piscari</div>
+      <nav class="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О мастере</a>
+        <a href="#video">Обзоры</a>
+      </nav>
+    </header>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero">
+      <h1>Премиальные снасти Piscari</h1>
+      <p>Создано фанатом рыбалки для идеального улова. Проверено на личном опыте.</p>
+      <a href="#catalog" class="btn-main">Смотреть каталог</a>
+    </section>
+
+    <!-- КАТАЛОГ С ТАБАМИ -->
+    <section id="catalog" class="catalog">
+      <h2>Наш ассортимент</h2>
+      
+      <!-- Кнопки фильтров -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-size="all">Все размеры</button>
+        <button class="filter-btn" data-size="25">Размер 25 мм</button>
+        <button class="filter-btn" data-size="35">Размер 35 мм</button>
+      </div>
+
+      <!-- Сетка с карточками товаров -->
+      <div id="product-grid" class="product-grid">
+        <!-- Сюда TypeScript будет автоматически подставлять карточки -->
+      </div>
+    </section>
+
+    <!-- БЛОК С YOUTUBE ВИДЕО -->
+    <section id="video" class="video-section">
+      <h2>Снасти Piscari в действии</h2>
+      <div class="video-container">
+        <!-- Сюда вставим плеер YouTube -->
+        <p style="text-align: center; color: #a0a6a1;">Видео-обзоры снастей скоро появятся!</p>
+      </div>
+    </section>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
