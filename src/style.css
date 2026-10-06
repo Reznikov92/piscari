@@ -51,7 +51,7 @@ body {
 }
 
 .nav a:hover {
-  color: #cc1111; /* Меняем на красный при наведении */
+  color: #cc1111;
 }
 
 /* Главный экран */
@@ -76,7 +76,7 @@ body {
 .btn-main {
   display: inline-block;
   padding: 12px 30px;
-  background-color: #cc1111; /* Тоже красный цвет */
+  background-color: #cc1111;
   color: #fff;
   text-decoration: none;
   font-weight: bold;

@@ -1,4 +1,11 @@
 import './style.css' // Подключаем наши обновленные стили
+import clientLogo from './assets/logo.png' // Умный импорт логотипа из src/assets/
+
+// Автоматически передаем путь к логотипу в тег img в шапке
+const logoImg = document.querySelector('.logo-img') as HTMLImageElement;
+if (logoImg) {
+  logoImg.src = clientLogo;
+}
 
 interface Product {
   id: number;
