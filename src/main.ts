@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css' // Подключаем наши очищенные стили
 
 interface Product {
   id: number;

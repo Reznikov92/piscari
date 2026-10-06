@@ -19,7 +19,7 @@ body {
    ========================================================================== */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Расталкивает логотип влево, а навигацию вправо */
   align-items: center;
   padding: 15px 5%;
   background-color: #1a211c;
@@ -32,27 +32,18 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px; /* Отступ между картинкой и текстом Piscari */
 }
 
+/* ЧИСТЫЙ СТИЛЬ ПОД НОВЫЙ ЛОГОТИП КЛИЕНТА (БЕЗ ФИЛЬТРОВ И НАЛОЖЕНИЙ) */
 .logo-img {
-  height: 45px; /* Немного уменьшили высоту, чтобы гармонично смотрелось с текстом */
-  width: auto;
-  object-fit: contain;
-  border: 2px solid black; 
-  background-color: transparent;
+  height: 50px;        /* Оптимальная высота логотипа в шапке */
+  width: auto;         /* Пропорции ширины сохраняются автоматически */
+  object-fit: contain; /* Защита от сжатия и искажения рисунка */
+  background-color: transparent; /* Никаких фоновых квадратов */
+  filter: none;        /* Полный сброс всех инверсий и фильтров */
 }
 
-/* Красивое текстовое название бренда в шапке */
-.logo-text {
-  font-size: 22px;
-  font-weight: 800;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-/* Меню навигации строго по центру */
+/* Меню навигации аккуратно прижато к правому краю */
 .nav {
   display: flex;
   gap: 25px;
@@ -66,59 +57,7 @@ body {
 }
 
 .nav a:hover {
-  color: #cc1111;
-}
-
-/* Правая часть шапки: соцсети + кнопка */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.header-socials {
-  display: flex;
-  gap: 10px;
-}
-
-/* Маленькие круглые кнопочки соцсетей в шапке */
-.nav-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  color: #fff;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: bold;
-  transition: transform 0.2s, background-color 0.3s;
-}
-
-.nav-social:hover {
-  transform: scale(1.1);
-}
-
-.nav-social.tg { background-color: #0088cc; }
-.nav-social.vk { background-color: #0077ff; }
-.nav-social.wa { background-color: #25d366; }
-
-/* Кнопка "Заказать" в шапке */
-.btn-header-order {
-  padding: 8px 18px;
-  background-color: #cc1111;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: background-color 0.3s;
-}
-
-.btn-header-order:hover {
-  background-color: #990000;
+  color: #cc1111; /* Подсветка ссылок красным при наведении */
 }
 
 /* ==========================================================================
@@ -199,7 +138,7 @@ body {
 }
 
 /* ==========================================================================
-   5. СЕТКА ТОВАРОВ И КАРТОЧКИ СНАСТЕЙ
+   5. СЕТКА ТОВАРОВ И КАРТОЧКИ СНАСТЕЙ (25мм / 35мм)
    ========================================================================== */
 .product-grid {
   display: grid;
@@ -320,7 +259,6 @@ body {
   font-size: 14px;
 }
 
-/* Стили для юридического блока */
 .footer-legal {
   margin-top: 15px;
   border-top: 1px solid #2d3b32;
@@ -344,7 +282,6 @@ body {
   color: #636e65;
 }
 
-/* Блок соцсетей в подвале */
 .footer-socials h4 {
   color: #fff;
   margin-bottom: 15px;
@@ -381,17 +318,13 @@ body {
 .social-link.wa:hover { background-color: #20ba5a; }
 
 /* ==========================================================================
-   8. АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (MEDIA QUERIES)
+   8. АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
    ========================================================================== */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     gap: 15px;
     text-align: center;
-  }
-  .header-right {
-    width: 100%;
-    justify-content: center;
   }
   .footer-content {
     flex-direction: column;
