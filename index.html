@@ -1,92 +1,98 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Piscari — Авторские рыболовные снасти</title>
-</head>
-
-<body>
-  <!-- ШАПКА САЙТА -->
-  <header class="header">
-    <div class="logo">
-      <!-- Убираем сложный BASE_URL и пишем простой относительный путь с точкой -->
-      <img src="./logo.svg" alt="Piscari Логотип" class="logo-img">
-    </div>
-
-    <!-- Навигация по центру/справа -->
-    <nav class="nav">
-      <a href="#catalog">Каталог</a>
-      <a href="#video">Обзоры</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
-  </header>
-
-  <!-- ГЛАВНЫЙ ЭКРАН -->
-  <section class="hero">
-    <h1>Премиальные снасти Piscari</h1>
-    <p>Создано фанатом рыбалки для идеального улова. Проверено на личном опыте.</p>
-    <a href="#catalog" class="btn-main">Смотреть каталог</a>
-  </section>
-
-  <!-- КАТАЛОГ С ТАБАМИ -->
-  <section id="catalog" class="catalog">
-    <h2>Наш ассортимент</h2>
-
-    <!-- Кнопки фильтров -->
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-size="all">Все размеры</button>
-      <button class="filter-btn" data-size="25">Размер 25 мм</button>
-      <button class="filter-btn" data-size="35">Размер 35 мм</button>
-    </div>
-
-    <!-- Сетка с карточками товаров -->
-    <div id="product-grid" class="product-grid">
-      <!-- Сюда TypeScript автоматически подставляет карточки -->
-    </div>
-  </section>
-
-  <!-- БЛОК С YOUTUBE ВИДЕО -->
-  <section id="video" class="video-section">
-    <h2>Снасти Piscari в действии</h2>
-    <div class="video-container">
-      <iframe width="100%" height="450" src="https://youtube.com" title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </section>
-
-  <!-- ПОДВАЛ САЙТА (FOOTER) -->
-  <footer id="contacts" class="footer">
-    <div class="footer-content">
-      <div class="footer-info">
-        <h3>Piscari</h3>
-        <p>Авторские снасти ручной работы от рыбака для рыбаков.</p>
-
-        <!-- ТОЧНЫЙ ЮРИДИЧЕСКИЙ БЛОК ДЛЯ ЕВСЕЕВА АРТЁМА -->
-        <div class="footer-legal">
-          <p>Информация на сайте не является публичной офертой.</p>
-          <p>Продажи осуществляются в соответствии с законодательством РФ.</p>
-          <p class="inn-placeholder">Рыболовные снасти Piscari | Мастер: Евсеев Артём</p>
-        </div>
-
-        <p class="copyright">© 2026 Piscari. Все права защищены.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piscari — Авторские рыболовные снасти</title>
+  </head>
+  <body>
+    <!-- ШАПКА САЙТА -->
+    <header class="header">
+      <div class="logo">
+        <img src="./logo.svg" alt="Piscari Логотип" class="logo-img">
       </div>
+      
+      <!-- Единая навигация (на мобилках уходит под бургер ВСЯ целиком, вместе с соцсетями!) -->
+      <nav class="nav" id="header-nav">
+        <div class="nav-links-group">
+          <a href="#catalog" id="nav-catalog-link">Каталог</a>
+          <a href="#video">Обзоры</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+        
+        <!-- Блок соцсетей внутри шторки -->
+        <div class="header-socials">
+          <a href="https://t.me" target="_blank" class="nav-social tg" title="Telegram">TG</a>
+          <a href="https://vk.com" target="_blank" class="nav-social vk" title="ВКонтакте">VK</a>
+          <a href="https://max.ru" target="_blank" class="nav-social max" title="Социальная сеть MAX">MAX</a>
+        </div>
+      </nav>
 
-      <div class="footer-socials">
-        <h4>Связаться с мастером:</h4>
-        <div class="social-buttons">
-          <a href="https://t.me" target="_blank" class="social-link tg">Telegram</a>
-          <a href="https://vk.com" target="_blank" class="social-link vk">ВКонтакте</a>
-          <a href="https://whatsapp.com" target="_blank" class="social-link wa">WhatsApp</a>
+      <!-- Единственная кнопка бургер-меню на виду справа -->
+      <button id="burger-menu-btn" class="burger-btn" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
+    <div id="main-page">
+      <section class="hero">
+        <h1>Премиальные снасти Piscari</h1>
+        <p>Создано фанатом рыбалки для идеального улова. Проверено на личном опыте.</p>
+      </section>
+
+      <section id="catalog" class="catalog">
+        <h2>Наш ассортимент</h2>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-size="all">Все размеры</button>
+          <button class="filter-btn" data-size="25">Размер 25 мм</button>
+          <button class="filter-btn" data-size="35">Размер 35 мм</button>
+        </div>
+        <div id="product-grid" class="product-grid"></div>
+      </section>
+
+      <section id="video" class="video-section">
+        <h2>Снасти Piscari в действии</h2>
+        <div class="video-container">
+          <iframe width="100%" height="450" src="https://youtube.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </section>
+    </div>
+
+    <!-- ОТДЕЛЬНАЯ СТРАНИЦА КАРТОЧКИ ТОВАРА -->
+    <div id="product-page" class="hidden">
+      <section class="product-page-container">
+        <button id="btn-back-to-catalog" class="btn-back">← Назад в каталог</button>
+        <div id="product-detail-view"></div>
+      </section>
+    </div>
+
+    <!-- ПОДВАЛ САЙТА -->
+    <footer id="contacts" class="footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Piscari</h3>
+          <p>Авторские снасти ручной работы от рыбака для рыбаков.</p>
+          <div class="footer-legal">
+            <p>Информация на сайте не является публичной офертой.</p>
+            <p>Продажи осуществляются в соответствии с законодательством РФ.</p>
+            <p class="inn-placeholder">Рыболовные снасти Piscari | Мастер: Евсеев Артём</p>
+          </div>
+          <p class="copyright">© 2026 Piscari. Все права защищены.</p>
+        </div>
+        <div class="footer-socials">
+          <h4>Связаться с мастером:</h4>
+          <div class="social-buttons">
+            <a href="https://t.me" target="_blank" class="social-link tg">Telegram</a>
+            <a href="https://vk.com" target="_blank" class="social-link vk">ВКонтакте</a>
+            <a href="https://max.ru" target="_blank" class="social-link max">MAX</a>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script type="module" src="/src/main.ts"></script>
-</body>
-
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

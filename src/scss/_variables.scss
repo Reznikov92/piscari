@@ -1,0 +1,25 @@
+/* ФИРМЕННЫЕ ЦВЕТА И СИСТЕМНЫЕ НАСТРОЙКИ ШРИФТОВ */
+$bg-main: #121613;       // Глубокий темно-зеленый фон сайта
+$bg-card: #1a211c;       // Фон карточек и шапки
+$border-color: #2d3b32;  // Цвет рыбацких рамок-границ
+$color-text: #e4e6e4;    // Основной светлый текст
+$color-brand: #cc1111;   // Контрастный красный для кнопок
+$color-max: #7B2CBF;     // Фирменный фиолетовый цвет сети MAX
+$color-max-hover: #5A189A;
+
+.hidden {
+  display: none;
+}
+
+/* КРИТИЧЕСКИЙ БЛОК: ВОЗВРАЩАЕМ И ДУБЛИРУЕМ КРАСИВЫЕ ШРИФТЫ ДЛЯ ВСЕГО САЙТА */
+html, body, button, a, span, h1, h2, h3, p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased; /* Делает текст на экранах телефонов мягким и сглаженным */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: $bg-main;
+  color: $color-text;
+  font-size: 1rem; /* Базовый размер 16px */
+}
