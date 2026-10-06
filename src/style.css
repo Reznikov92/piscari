@@ -1,4 +1,6 @@
-/* Сброс стилей и шрифты */
+/* ==========================================================================
+   1. СБРОС СТИЛЕЙ И ОБЩИЕ НАСТРОЙКИ САЙТА
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +14,9 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Шапка сайта */
+/* ==========================================================================
+   2. ШАПКА САЙТА (HEADER) И БРЕНДИНГ
+   ========================================================================== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -20,32 +24,43 @@ body {
   padding: 15px 5%;
   background-color: #1a211c;
   border-bottom: 2px solid #2d3b32;
+  position: sticky; /* Шапка плавно остается вверху при скролле */
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  gap: 12px; /* Отступ между картинкой и текстом Piscari */
 }
 
-/* СТИЛИ ДЛЯ ЛОГОТИПА С КРАСНЫМ ФОНОМ */
 .logo-img {
-  height: 55px; /* Высота логотипа в шапке */
+  height: 45px; /* Немного уменьшили высоту, чтобы гармонично смотрелось с текстом */
   width: auto;
   object-fit: contain;
-  
-  /* Эффект магии: растворяет белый фон картинки, оставляя белый рисунок */
-  mix-blend-mode: multiply; 
-  
-  /* Красный фон под логотипом */
-  background-color: #cc1111; 
-  padding: 6px 12px;         /* Отступы вокруг логотипа */
-  border-radius: 6px;        /* Красивое скругление углов плашки */
+  border: 2px solid black; 
+  background-color: transparent;
+}
+
+/* Красивое текстовое название бренда в шапке */
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Меню навигации строго по центру */
+.nav {
+  display: flex;
+  gap: 25px;
 }
 
 .nav a {
   color: #e4e6e4;
   text-decoration: none;
-  margin-left: 20px;
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -54,7 +69,61 @@ body {
   color: #cc1111;
 }
 
-/* Главный экран */
+/* Правая часть шапки: соцсети + кнопка */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-socials {
+  display: flex;
+  gap: 10px;
+}
+
+/* Маленькие круглые кнопочки соцсетей в шапке */
+.nav-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.nav-social:hover {
+  transform: scale(1.1);
+}
+
+.nav-social.tg { background-color: #0088cc; }
+.nav-social.vk { background-color: #0077ff; }
+.nav-social.wa { background-color: #25d366; }
+
+/* Кнопка "Заказать" в шапке */
+.btn-header-order {
+  padding: 8px 18px;
+  background-color: #cc1111;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.3s;
+}
+
+.btn-header-order:hover {
+  background-color: #990000;
+}
+
+/* ==========================================================================
+   3. ГЛАВНЫЙ ЭКРАН (HERO SECTION)
+   ========================================================================== */
 .hero {
   text-align: center;
   padding: 120px 20px;
@@ -88,7 +157,9 @@ body {
   background-color: #990000;
 }
 
-/* Блок каталога */
+/* ==========================================================================
+   4. КАТАЛОГ ТОВАРОВ И КНОПКИ ФИЛЬТРАЦИИ СНАСТЕЙ
+   ========================================================================== */
 .catalog, .video-section {
   padding: 60px 5%;
   max-width: 1200px;
@@ -103,7 +174,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* Кнопки-фильтры */
 .filter-buttons {
   display: flex;
   justify-content: center;
@@ -128,7 +198,9 @@ body {
   color: #fff;
 }
 
-/* Сетка товаров */
+/* ==========================================================================
+   5. СЕТКА ТОВАРОВ И КАРТОЧКИ СНАСТЕЙ
+   ========================================================================== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -149,7 +221,6 @@ body {
   border-color: #cc1111;
 }
 
-/* Заглушка под фото */
 .product-img-stub {
   width: 100%;
   height: 200px;
@@ -200,4 +271,133 @@ body {
 
 .btn-buy:hover {
   background-color: #cc1111;
+}
+
+/* ==========================================================================
+   6. YOUTUBE ВИДЕО-ПЛЕЕР
+   ========================================================================== */
+.video-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 2px solid #2d3b32;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+  display: block;
+}
+
+/* ==========================================================================
+   7. ПОДВАЛ САЙТА (FOOTER) И ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ
+   ========================================================================== */
+.footer {
+  background-color: #1a211c;
+  border-top: 2px solid #2d3b32;
+  padding: 40px 5%;
+  margin-top: 60px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-info h3 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.footer-info p {
+  color: #a0a6a1;
+  font-size: 14px;
+}
+
+/* Стили для юридического блока */
+.footer-legal {
+  margin-top: 15px;
+  border-top: 1px solid #2d3b32;
+  padding-top: 10px;
+}
+
+.footer-legal p {
+  font-size: 11px !important;
+  color: #636e65 !important;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.inn-placeholder {
+  font-style: italic;
+}
+
+.footer-info .copyright {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #636e65;
+}
+
+/* Блок соцсетей в подвале */
+.footer-socials h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+}
+
+.social-link.tg { background-color: #0088cc; }
+.social-link.tg:hover { background-color: #0077b3; }
+
+.social-link.vk { background-color: #0077ff; }
+.social-link.vk:hover { background-color: #0066dd; }
+
+.social-link.wa { background-color: #25d366; }
+.social-link.wa:hover { background-color: #20ba5a; }
+
+/* ==========================================================================
+   8. АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .header-right {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .social-buttons {
+    justify-content: center;
+  }
 }
