@@ -9,11 +9,16 @@
   border-bottom: 0.125rem solid $border-color; 
   position: relative; 
 
+  /* ТРЕХЗОННАЯ СЕТКА ШАПКИ НА ПК */
+  & > * {
+    flex: 1; /* Раздаем одинаковую ширину всем трем главным блокам */
+  }
+
   .logo {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Прижимает рыбку строго к левому краю */
 
-    /* ИСПРАВЛЕНО: Яркий, чистый и светлый лазурно-голубой цвет. Теперь логотип горит контрастно и не сливается! */
     .logo-img {
       height: 3.125rem;       
       width: auto;         
@@ -22,10 +27,31 @@
     }
   }
 
+  /* ИСПРАВЛЕНО: Теперь монограмма стоит строго по центру, стала заметной и очень красивой */
+  .author-monogram {
+    display: flex;
+    justify-content: center; /* Центрирует буквы по центру экрана */
+    align-items: center;
+    font-size: 1.5rem; /* Увеличили размер букв, чтобы они были заметными */
+    font-weight: 900;
+    color: #4a3319; /* Насыщенный благородный золотисто-кофейный цвет */
+    letter-spacing: 0.35rem; /* Увеличили расстояние между заглавными буквами для премиального вида */
+    text-transform: uppercase;
+    text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.05); /* Легкая воздушная тень под буквами */
+    
+    // Элегантная тонкая круговая рамка вокруг инициалов автора
+    border: 0.0625rem solid $border-color;
+    padding: 0.3125rem 1rem 0.3125rem 1.35rem; /* Компенсируем правый letter-spacing для идеального центра */
+    border-radius: 0.25rem;
+    max-width: max-content;
+    margin: 0 auto; /* Жестко удерживает блок по центру */
+  }
+
   .nav {
     display: flex;
     align-items: center;
-    gap: 2.5rem; 
+    justify-content: flex-end; /* Прижимает навигацию строго к правому краю */
+    gap: 8.5rem; 
 
     .nav-links-group {
       display: flex;

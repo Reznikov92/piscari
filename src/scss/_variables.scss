@@ -1,8 +1,9 @@
-$bg-main: #121613;       
-$bg-card: rgba(26, 33, 28, 0.9); 
-$border-color: #2d3b32;  
-$color-text: #e4e6e4;    
-$color-brand: #cc1111;   
+/* ПРЕМИАЛЬНАЯ ТЁПЛАЯ БЕЖЕВАЯ ПАЛИТРА (СВЕТЛЫЙ ПЕСОЧНЫЙ) */
+$bg-main: #f5ebe0;       // Мягкий светлый бежевый цвет песчаного берега
+$bg-card: #fdf8f5;       // Нежный кремовый оттенок для карточек и шапки
+$border-color: #e3d5ca;  // Тёплые аккуратные рамки-границы
+$color-text: #281a14;    // Глубокий кофейно-коричневый текст
+$color-brand: #cc1111;   // Контрастный красный для кнопок
 $color-max: #7B2CBF;     
 $color-max-hover: #5A189A;
 
@@ -10,10 +11,11 @@ $color-max-hover: #5A189A;
   display: none;
 }
 
+/* СБРОС ЗАЗОРОВ: Шапка намертво прижимается к самому верху экрана */
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 html, body, button, a, span, h1, h2, h3, p {
@@ -26,11 +28,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url('../../public/bg.png'); // Жесткий путь к крутому PNG-фону
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; 
   background-color: $bg-main;
   color: $color-text;
   font-size: 1rem; 
